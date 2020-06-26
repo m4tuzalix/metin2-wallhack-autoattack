@@ -14,10 +14,12 @@ uintptr_t FinalAddress(uintptr_t ptr, std::vector<DWORD> offsets)
     }
     return addr; // returns the main pointer from needed assets
 }
+
 struct clicks {
     bool wallhack_clicked = FALSE;
     bool autoAttack_clicked = FALSE;
 }click;
+
 void attack(int value) {
     DWORD func = 0x0046D810;
     _asm {
@@ -34,6 +36,7 @@ void wallHack(int value, uintptr_t mod) {
     int* huj = (int*)adres;
     *huj = value;
 }
+
 DWORD WINAPI HackThread(HMODULE hModule)
 {
     AllocConsole();
